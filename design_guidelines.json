@@ -1,0 +1,118 @@
+{
+  "theme": "dark",
+  "archetype": "2 (Performance Pro)",
+  "emotional_tone": "Premium, controlled, motivational, sharp, SaaS-grade, performance-focused",
+  "colors": {
+    "background": "#0A0A0A",
+    "surface": "#121212",
+    "surface_hover": "#1A1A1A",
+    "border": "#262626",
+    "border_light": "#333333",
+    "primary": "#E50914",
+    "primary_hover": "#B80710",
+    "primary_transparent": "rgba(229, 9, 20, 0.15)",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A1A1AA",
+    "text_tertiary": "#71717A",
+    "success": "#10B981",
+    "warning": "#F59E0B"
+  },
+  "typography": {
+    "heading_font": "Barlow Condensed, sans-serif",
+    "body_font": "Manrope, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "scale": {
+      "h1": "text-5xl sm:text-6xl tracking-tighter uppercase font-black",
+      "h2": "text-3xl sm:text-4xl tracking-tight uppercase font-bold",
+      "h3": "text-xl sm:text-2xl tracking-tight font-semibold",
+      "h4": "text-lg uppercase tracking-[0.1em] font-medium",
+      "body": "text-base leading-relaxed text-[#A1A1AA]",
+      "small": "text-sm tracking-wide text-[#71717A]",
+      "overline": "text-xs uppercase tracking-[0.2em] font-bold text-[#E50914]"
+    }
+  },
+  "layout_and_spacing": {
+    "global_padding": "p-6 md:p-12 lg:p-24",
+    "dashboard_grid": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6",
+    "bento_hero": "col-span-1 md:col-span-2 lg:col-span-3 row-span-2",
+    "bento_standard": "col-span-1 row-span-1",
+    "bento_tall": "col-span-1 row-span-2",
+    "container_radius": "rounded-none",
+    "button_radius": "rounded-none",
+    "input_radius": "rounded-none"
+  },
+  "surfaces_and_borders": {
+    "card_default": "bg-[#121212] border border-[#262626] p-6",
+    "card_hover": "hover:border-[#E50914]/50 transition-colors duration-200",
+    "glass_header": "bg-[#0A0A0A]/80 backdrop-blur-xl border-b border-[#262626]",
+    "tactical_button": "bg-[#E50914] text-white font-bold tracking-widest uppercase px-6 py-3 hover:bg-[#B80710] transition-all border border-transparent hover:border-white/20",
+    "secondary_button": "bg-transparent text-white border border-[#262626] hover:bg-[#1A1A1A] hover:border-white/40 uppercase tracking-widest font-bold px-6 py-3"
+  },
+  "motion_and_interactions": {
+    "hover_state": "transition-all duration-200 ease-in-out",
+    "focus_state": "focus:outline-none focus:ring-2 focus:ring-[#E50914] focus:ring-offset-2 focus:ring-offset-[#0A0A0A]",
+    "active_state": "active:scale-[0.98]",
+    "page_transition": "animate-in fade-in duration-500"
+  },
+  "components_strategy": {
+    "cards": "Cardless layout or extreme flat cards. Use 1px #262626 solid borders. No drop shadows. Utilize 'border-collapse' style grids for metrics.",
+    "buttons": "Sharp edges, uppercase typography, high contrast. Only use Primary (#E50914) for the main conversion/action.",
+    "inputs": "Flat, background #121212, border #262626, white text. On focus, border turns #E50914. No rounded corners.",
+    "charts": "Recharts or Shadcn Charts. Use #E50914 for active lines/bars, #262626 for gridlines, #A1A1AA for axis text.",
+    "tables": "Dense, tech-focused. Hover effects on rows (bg-[#1A1A1A]). Align numbers to the right.",
+    "tabs": "Underline style only. Active tab has #E50914 bottom border and white text. Inactive tabs are #71717A."
+  },
+  "media": {
+    "icons": {
+      "library": "@phosphor-icons/react",
+      "weight": "bold",
+      "installation": "yarn add @phosphor-icons/react"
+    },
+    "images": [
+      {
+        "category": "hero_background",
+        "description": "Athletic man working out in a modern gym, high contrast, used with a dark overlay",
+        "url": "https://images.pexels.com/photos/35540076/pexels-photo-35540076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      },
+      {
+        "category": "texture_background",
+        "description": "Dark abstract texture for section backgrounds or card overlays",
+        "url": "https://images.pexels.com/photos/36013164/pexels-photo-36013164.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      },
+      {
+        "category": "clothing_recommendation",
+        "description": "Black athletic clothing for the gear recommendation card",
+        "url": "https://images.unsplash.com/photo-1762575910569-46971cd69df3?crop=entropy&cs=srgb&fm=jpg"
+      },
+      {
+        "category": "event_countdown_bg",
+        "description": "Sprint track stadium at night for event mode",
+        "url": "https://images.pexels.com/photos/12201296/pexels-photo-12201296.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      }
+    ]
+  },
+  "page_specific_guidelines": {
+    "marketing_landing": "High visual impact. Use the hero_background image with a bg-[#0A0A0A]/70 overlay. Large typography (Barlow Condensed). Sticky glass header. Feature bento grid using the texture_background for variety.",
+    "auth": "Split screen layout. Left side: dark texture or event track image. Right side: minimalistic form, zero-radius inputs, primary action button. High-end SaaS feel.",
+    "dashboard_command_center": "The 'Control Room' grid. Dense metrics. Top row: Readiness Score (large typography), Streak. Middle area: Today's Workout & Diet Plan side-by-side. Right column: Event countdown & Clothing recommendations.",
+    "onboarding_assessment": "Step-by-step wizard. Clean, focused. Progress bar at the top using #E50914. Large readable questions.",
+    "daily_checklist": "Tactical UI. Checkboxes must be square. Strikethrough text when checked, color shifts to #71717A.",
+    "workout_logging": "Mobile-first view within the dashboard. Large tap targets for sets/reps. Timer component using mono font (JetBrains Mono).",
+    "progression_analytics": "Utilize dark charts. Focus on the data. Minimal UIchrome around the charts."
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure minimum 4.5:1 for standard text. Gray text (#71717A) must only be used for non-essential labels.",
+    "focus": "All interactive elements must have a visible focus state.",
+    "testing_attributes": "All buttons, inputs, tabs, and checklist items MUST include data-testid (e.g., 'data-testid=\"login-submit-button\"')."
+  },
+  "instructions_to_main_agent": [
+    "Use Tailwind CSS for all styling. Rely on custom configured colors from this JSON.",
+    "Install and use 'lucide-react' or '@phosphor-icons/react' for icons.",
+    "Implement 'Barlow Condensed' for headings and 'Manrope' for body text via Google Fonts.",
+    "For the dashboard, use CSS Grid heavily. Avoid overusing flexbox for multi-dimensional layouts.",
+    "Never use pure black text or default borders. Always use the specified palette (#0A0A0A base, #262626 border).",
+    "Ensure the application is wrapped in a dark theme by default (e.g., `<html class='dark'>`).",
+    "Do not use generic placeholder images. ONLY use the URLs provided in the media section.",
+    "Build the dashboard using pure HTML/Tailwind for the grid structure, integrating Shadcn UI primitives only for complex interactions (dropdowns, dialogs, charts)."
+  ]
+}
