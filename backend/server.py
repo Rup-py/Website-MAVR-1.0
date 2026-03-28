@@ -823,8 +823,10 @@ async def get_weekly_report(request: Request):
     if ai_insights:
         report["ai_insights"] = ai_insights
     
-    await db.weekly_reports.insert_one(report)
+    # Insert a copy to avoid _id mutation
+    await db.weekly_reports.insert_one(report.copy())
     
+    # Return clean report (without _id)
     return report
 
 # ==================== ADMIN ROUTES ====================
