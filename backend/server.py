@@ -854,12 +854,12 @@ async def admin_get_analytics(request: Request):
     total_users = await db.users.count_documents({})
     onboarded_users = await db.users.count_documents({"onboarding_completed": True})
     
-    # Athlete level distribution
-    profiles = await db.user_profiles.find({}, {"athlete_level": 1}).to_list(1000)
-    level_dist = {}
-    for p in profiles:
-        level = p.get("athlete_level", "unknown")
-        level_dist[level] = level_dist.get(level, 0) + 1
+    # Athlete level distribution using aggregation pipeline (optimized)
+    level_pipeline = [
+        {"$group": {"_id": "$athlete_level", "count": {"$sum": 1}}}
+    ]
+    level_results = await db.user_profiles.aggregate(level_pipeline).to_list(None)
+    level_dist = {r["_id"] or "unknown": r["count"] for r in level_results}
     
     # Active today
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -930,10 +930,20 @@ async def health_check():
 app.include_router(api_router)
 
 # CORS
+cors_origins = os.environ.get("CORS_ORIGINS", "*")
 frontend_url = os.environ.get("FRONTEND_URL", "http://localhost:3000")
+if cors_origins == "*":
+    allowed_origins = ["*"]
+else:
+    allowed_origins = [o.strip() for o in cors_origins.split(",") if o.strip()]
+    if frontend_url not in allowed_origins:
+        allowed_origins.append(frontend_url)
+    if "http://localhost:3000" not in allowed_origins:
+        allowed_origins.append("http://localhost:3000")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[frontend_url, "http://localhost:3000"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
